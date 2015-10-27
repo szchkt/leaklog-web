@@ -1,0 +1,10 @@
+php_flag magic_quotes_gpc Off
+php_value max_input_vars 100000
+Options -MultiViews
+RewriteEngine on
+
+RewriteRule ^config/ - [F]
+RewriteRule ^controllers/ - [F]
+RewriteRule ^models/ - [F]
+RewriteRule ^traits/ - [F]
+RewriteRule ^(.*)$ lib/system/run.php?uri=/$1&request_uri=%{REQUEST_URI} [QSA,L]
